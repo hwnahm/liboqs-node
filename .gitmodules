@@ -1,8 +1,8 @@
 [submodule "deps/liboqs"]
 	path = deps/liboqs
-	url = https://github.com/open-quantum-safe/liboqs.git
-	branch = main
+	url = https://github.com/hwnahm/liboqs.git
+	branch = norma
 [submodule "deps/liboqs-cpp"]
 	path = deps/liboqs-cpp
-	url = https://github.com/open-quantum-safe/liboqs-cpp.git
-	branch = main
+	url = https://github.com/hwnahm/liboqs-cpp.git
+	branch = norma

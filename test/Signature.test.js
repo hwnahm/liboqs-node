@@ -193,9 +193,12 @@ describe("Signature", () => {
 
   describe("integration", () => {
     const algorithms = Sigs.getEnabledAlgorithms();
-    const alice = new Signature(algorithms[0]);
-    const bob = new Signature(algorithms[0]);
-    const bobPublicKey = bob.generateKeypair();
+    // const alice = new Signature(algorithms[0]);
+    const alice = new Signature('Falcon-512');
+    // const bob = new Signature(algorithms[0]);
+    const bob = new Signature('Falcon-512');
+    const seed = Buffer.alloc(48, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    const bobPublicKey = bob.generateKeypair(seed);
     const message = Buffer.alloc(48, "TCosmo");
     const signature = bob.sign(message);
     const valid = alice.verify(message, signature, bobPublicKey);

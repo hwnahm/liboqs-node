@@ -110,8 +110,16 @@ namespace Signature {
    */
   Napi::Value Signature::generateKeypair(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
+    if (info.Length() > 0 && !info[0].IsBuffer()) {
+        throw Napi::TypeError::New(env, "Seed must be buffer");
+    }
+    // TODO : need to check what happens in case of no seed argument provided.
+    const auto seedBuffer = info[0].As<Napi::Buffer<byte>>();
+    const auto seedData = seedBuffer.Data();
+    const bytes seedVec(seedData, seedData + seedBuffer.Length());
+
     try {
-      const bytes publicKeyVec = oqsSig->generate_keypair();
+      const bytes publicKeyVec = oqsSig->generate_keypair(seedVec);
       bytes* publicKeyVecCopy = new bytes(publicKeyVec);
       if (publicKeyVecCopy == nullptr) {
         throw Napi::Error::New(env, "Failed to allocate memory");

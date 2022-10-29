@@ -19,6 +19,10 @@
           "message": "Executing prebuild script"
         }
       ],
+      "xcode_settings": { "GCC_ENABLE_CPP_EXCEPTIONS": "YES" },
+      "msvs_settings": {
+        "VCCLCompilerTool": { "ExceptionHandling": 1 },
+      },
       "sources": [
         "./src/addon.cpp",
         "./src/KEMs.cpp",
