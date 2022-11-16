@@ -49,3 +49,9 @@ Please report issues at https://github.com/TapuCosmo/liboqs-node/issues.
 ## Pull Requests
 
 Feel free to submit pull requests to https://github.com/TapuCosmo/liboqs-node/pulls.
+
+## Usage
+
+git submodule update --init --recursive
+yarn
+yarn build
